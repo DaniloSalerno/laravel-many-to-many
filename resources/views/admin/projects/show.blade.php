@@ -30,10 +30,6 @@
             <div>
         
                 <div class="card-body">
-
-                    <div class="badge bg-primary">
-                        {{$project->type ? $project->type->name : 'Untypized'}}
-                    </div>
         
                     <div class="card-title">
                         <div class="badge text-bg-info">Nome del progetto</div>
@@ -48,6 +44,26 @@
                     <div class="card-text">
                         <div class="badge text-bg-info">Presentazione</div>
                         <p>{{$project->content}}</p>
+                    </div>
+
+                    
+                    <div>
+                        <span>Type: </span>
+                        <span class="badge bg-primary">{{$project->type ? $project->type->name : 'Untypized'}}</span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <span>Technologies:</span>
+                        <ul class="list-unstyled">
+                            @forelse ($project->technologies as $technology)
+                                <li class="badge bg-primary">
+                                    <i class="fas fa-tag fa-xs fa-fw" aria-hidden="true"></i>
+                                    {{$technology->name}}
+                                </li>
+                            @empty
+                                <li>Unlabeled</li>
+                            @endforelse
+                        </ul>
                     </div>
             
                     <div class="links d-flex flex-column gap-2 py-4">
