@@ -77,9 +77,36 @@
                 <!-- /.col -->
 
                 <div class="col">
+                    <label for="technologies" class="form-label">Technologies</label>
+
+                    <select multiple class="form-select @error('technologies') is-invalid @enderror" name="technologies[]" id="technologies">
+                        <option disabled>Select a technology</option>
+                        <option value="">No one</option>
+
+                        @foreach($technologies as $technology)
+
+                        @if ($errors->any())
+
+                            <option value=" {{$technology->id}} " {{in_array($technology->id, old('technologies', [])) ? 'selected' : ''}} >{{$technology->name}}</option>
+
+                        @else
+
+                        <option value=" {{$technology->id}} " {{ $project->technologies->contains($technology) ? 'selected' : ''}} >{{$technology->name}}</option>
+                            
+                        @endif
+                        @endforeach
+
+                    </select>
+                    @error('technology')
+                    <div class="text-danger"> {{$message}} </div>
+                    @enderror
+                </div>
+                <!-- /.col -->
+
+                <div class="col">
                     <div>
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="5" placeholder="Type a description" required>{{old('title', $project->description)}}</textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="5" placeholder="Type a description" required>{{old('description', $project->description)}}</textarea>
                         @error('description')
                         <div class="text-danger"> {{$message}} </div>
                         @enderror
@@ -92,7 +119,7 @@
                 <div class="col">
                     <div>
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" cols="30" rows="5" placeholder="Type a content" required>{{old('title', $project->content)}}</textarea>
+                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" cols="30" rows="5" placeholder="Type a content" required>{{old('content', $project->content)}}</textarea>
                         @error('content')
                         <div class="text-danger"> {{$message}} </div>
                         @enderror

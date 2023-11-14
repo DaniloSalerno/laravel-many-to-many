@@ -121,6 +121,7 @@ class ProjectController extends Controller
         /*  if (!is_null($project->thumb)) {
             Storage::delete($project->thumb);
         } */
+
         $project->delete();
 
         return to_route('admin.projects.index')->with('message', 'Welldone! Project deleted successfully');
@@ -154,6 +155,8 @@ class ProjectController extends Controller
             //dd(Storage::exists($relative_path));
             Storage::delete($relative_path);
         }
+
+        $project->technologies()->detach();
 
         $project->forceDelete();
 

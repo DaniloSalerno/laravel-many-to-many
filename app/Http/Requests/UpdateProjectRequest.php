@@ -30,7 +30,8 @@ class UpdateProjectRequest extends FormRequest
             'thumb' => ['required', 'image', 'max:1000'],
             'project_url' => ['bail', 'nullable', 'string', 'max:255', Rule::unique('projects')->ignore($this->project)],
             'git_url' => ['bail', 'nullable', 'string', 'max:255', Rule::unique('projects')->ignore($this->project)],
-            'type_id' => ['nullable', 'exists:types,id']
+            'type_id' => ['nullable', 'exists:types,id'],
+            'technologies' => ['nullable', 'exists:technologies,id'],
 
         ];
     }
