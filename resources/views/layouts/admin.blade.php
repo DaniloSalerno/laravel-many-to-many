@@ -104,6 +104,10 @@
                                     <i class="fa-solid fa-font-awesome fa-lg fa-fw"></i> Types
                                     
                                 </a>
+
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.technologies.index' ? 'bg-secondary' : '' }}" href="{{route('admin.technologies.index')}}">
+                                    <i class="fa-solid fa-laptop-code fa-lg fa-fw"></i> Technologies
+                                </a>
                             </li>
 
                         </ul>
