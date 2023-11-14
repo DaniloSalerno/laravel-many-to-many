@@ -156,7 +156,9 @@ class ProjectController extends Controller
             Storage::delete($relative_path);
         }
 
-        $project->technologies()->detach();
+        if ($project->technologies) {
+            $project->technologies()->detach();
+        }
 
         $project->forceDelete();
 
