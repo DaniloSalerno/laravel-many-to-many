@@ -25,7 +25,7 @@
         <form action=" {{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="row row-cols-1 row-cols-md-2">
+            <div class="row row-cols-1 row-cols-md-2 g-5">
                 <div class="col">
                     <div>
                         <label for="title" class="form-label">Title</label>
@@ -69,7 +69,7 @@
                 </div>
                 <!-- /.col -->
 
-                <div class="col">
+                {{-- <div class="col">
                     <label for="technologies" class="form-label">Technologies</label>
 
                     <select multiple class="form-select @error('technologies') is-invalid @enderror" name="technologies[]" id="technologies">
@@ -85,7 +85,19 @@
                     <div class="text-danger"> {{$message}} </div>
                     @enderror
                 </div>
-                <!-- /.col -->
+                <!-- /.col --> --}}
+
+                <div class="col">
+                    <label for="technologies" class="form-label d-block">Choose Technologies:</label>
+                    @foreach ($technologies as $technology)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input @error('technologies') is-invalid @enderror" type="checkbox" id="technologies" name="technologies[]"
+                                value="{{ $technology->id }}"
+                                {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="technologies">{{ $technology->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
 
                 <div class="col">
                     <div>

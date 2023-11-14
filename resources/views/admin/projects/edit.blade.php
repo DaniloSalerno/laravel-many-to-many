@@ -24,7 +24,7 @@
             @csrf
             @method('PUT')
     
-            <div class="row row-cols-1 row-cols-md-2">
+            <div class="row row-cols-1 row-cols-md-2 g-5">
 
                 <div class="col">
                     <div>
@@ -76,7 +76,7 @@
                 </div>
                 <!-- /.col -->
 
-                <div class="col">
+                {{-- <div class="col">
                     <label for="technologies" class="form-label">Technologies</label>
 
                     <select multiple class="form-select @error('technologies') is-invalid @enderror" name="technologies[]" id="technologies">
@@ -97,6 +97,34 @@
                         @endforeach
 
                     </select>
+                    @error('technology')
+                    <div class="text-danger"> {{$message}} </div>
+                    @enderror
+                </div>
+                <!-- /.col --> --}}
+                
+                <div class="col">
+                    <label for="technologies" class="form-label d-block">Choose Technologies:</label>
+
+                    @foreach ($technologies as $technology)
+
+                    @if ($errors->any())
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="technologies" name="technologies[]" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                        </div>
+
+                    @else
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input @error('technologies') is-invalid @enderror" type="checkbox" id="technologies" name="technologies[]"
+                                value="{{ $technology->id }}"
+                                {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="technologies">{{ $technology->name }}</label>
+                        </div>
+
+                    @endif
+                    @endforeach
+
                     @error('technology')
                     <div class="text-danger"> {{$message}} </div>
                     @enderror
