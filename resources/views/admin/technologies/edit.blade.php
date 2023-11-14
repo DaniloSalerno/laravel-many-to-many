@@ -42,7 +42,7 @@
             
 
             <div class="py-4">
-                <a class="text-decoration-none btn btn-primary" href="{{ route('admin.types.index') }}">
+                <a class="text-decoration-none btn btn-primary" href="{{ route('admin.technologies.index') }}">
                     <i class="fa-solid fa-table-list"></i>
                 </a>
                 <button type="submit" class="btn btn-success">
