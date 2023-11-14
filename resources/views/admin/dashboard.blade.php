@@ -7,7 +7,7 @@
         {{__('Welcome')}}  {{ Auth::user()->name }}
     </h2>
 
-    <div class="row row-cols-sm-2 row-cols-md-3 justify-content-center">
+    <div class="row row-cols-sm-2 row-cols-md-3 g-5">
         <div class="col">
             <div class="card text-center hover_shadow">
                 <a class="text-dark text-decoration-none" href="{{ route('admin.projects.index') }}">
@@ -59,7 +59,7 @@
             <div class="card text-center hover_shadow">
                 <a class="text-dark text-decoration-none" href="{{ route('admin.types.index') }}">
                     <div class="card-header text-uppercase">
-                        Total Types
+                        Types <i class="fa-solid fa-font-awesome fa-xs"></i>
                     </div>
                 </a>
 
@@ -67,6 +67,28 @@
                     
                     <div>
                         {{$total_types}}
+                    </div>
+
+                   
+                </div>
+                {{-- /.card-body --}}
+            </div>
+            {{-- /.card --}}
+        </div>
+        {{-- /.col --}}
+
+        <div class="col">
+            <div class="card text-center hover_shadow">
+                <a class="text-dark text-decoration-none" href="{{ route('admin.technologies.index') }}">
+                    <div class="card-header text-uppercase">
+                        technologies <i class="fa-solid fa-laptop-code fa-xs"></i>
+                    </div>
+                </a>
+
+                <div class="card-body">
+                    
+                    <div>
+                        {{$total_technologies}}
                     </div>
 
                    
