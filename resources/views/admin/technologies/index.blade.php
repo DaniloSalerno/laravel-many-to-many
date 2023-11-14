@@ -9,9 +9,9 @@
         <h2 class="text-muted text-uppercase">Technologies table</h1>
 
         <div id="icons">
-            {{-- <a class="btn btn-primary d-inline-flex align-items-center justify-items-center p-2" href="{{ route('admin.technologies.create') }}">
+            <a class="btn btn-primary d-inline-flex align-items-center justify-items-center p-2" href="{{ route('admin.technologies.create') }}">
                 <i class="fa-solid fa-plus"></i>
-            </a> --}}
+            </a>
         </div>
         {{-- /#icons --}}
 
