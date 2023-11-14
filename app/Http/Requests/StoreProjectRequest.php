@@ -30,7 +30,8 @@ class StoreProjectRequest extends FormRequest
             'thumb' => ['bail', 'required', 'image', 'max:1000'],
             'project_url' => ['bail', 'nullable', 'string', 'max:255', Rule::unique('projects')],
             'git_url' => ['bail', 'nullable', 'string', 'max:255', Rule::unique('projects')],
-            'type_id' => ['nullable', 'exists:types,id']
+            'type_id' => ['nullable', 'exists:types,id'],
+            'technologies' => ['nullable', 'exists:technologies,id'],
         ];
     }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('technology_id');
             $table->foreign('technology_id')->references('id')->on('technologies');
 
-            $table->primary('project_id', 'technology_id');
+            $table->primary(['project_id', 'technology_id']);
         });
     }
 
