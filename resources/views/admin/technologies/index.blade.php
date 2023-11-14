@@ -86,11 +86,11 @@
 
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                                {{-- <form action="{{route('admin.technologied.destroy', $technology->slug)}}" method="POST">
+                                                <form action="{{route('admin.technologies.destroy', $technology->slug)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Confirm</button>
-                                                </form> --}}
+                                                </form>
 
                                             </div>
                                             {{-- /.modal-footer --}}
