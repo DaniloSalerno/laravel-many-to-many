@@ -51,9 +51,9 @@
                                 {{-- <a href=" {{route('admin.technologies.show', $technology->slug)}} " class="btn btn-outline-primary">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>  --}}
-                                {{-- <a href=" {{route('admin.technologies.edit', $technology->slug)}} " class="btn btn-outline-success">
+                                <a href=" {{route('admin.technologies.edit', $technology->slug)}} " class="btn btn-outline-success">
                                     <i class="fa-solid fa-file-pen"></i>
-                                </a>  --}}
+                                </a> 
     
                                 <!-- Modal trigger button -->
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalId-{{$technology->id}}">

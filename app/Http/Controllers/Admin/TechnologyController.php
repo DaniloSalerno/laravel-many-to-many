@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTechnologyRequest;
+use App\Http\Requests\UpdateTechnologyRequest;
 use App\Models\Technology;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -55,15 +56,21 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view('admin.technologies.edit', compact('technology'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Technology $technology)
+    public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['slug'] = Str::slug($request->name, '-');
+        //dd($val_data);
+        $technology->update($val_data);
+
+        return to_route('admin.technologies.index')->with('message', 'Technology updated successfully');
     }
 
     /**
