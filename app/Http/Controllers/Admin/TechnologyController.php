@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
+use App\Models\Project;
 use App\Models\Technology;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -78,6 +79,17 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
+
+        $projects = Project::all();
+
+        foreach ($projects as $project) {
+
+            if ($project->technologies) {
+                $project->technologies()->detach($technology->id);
+            }
+        }
+
+
         $technology->delete();
 
         return to_route('admin.technologies.index')->with('message', 'Welldone! Technology deleted successfully');
