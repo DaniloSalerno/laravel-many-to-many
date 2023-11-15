@@ -80,15 +80,19 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        /* PROVARE AD ELIMINARE IL TYPE DA OGNI PROJECT A CUI è STATA ASSEGNATA */
-        /* $projects = Project::all();
+        /* PROVARE AD ELIMINARE IL TYPE DA OGNI PROJECT A CUI è STATO ASSEGNATO */
+        $projects = Project::all();
 
         foreach ($projects as $project) {
-            if ($project->type) {
-                $project->type()->delete();;
-            }
-        } */
 
+            if (!is_null($project->type_id)) {
+                //dd($project);
+                $project->type()->delete();
+            }
+        }
+
+        //dd($type->projects()->delete());
+        //$type->projects()->delete();
 
         $type->delete();
 
