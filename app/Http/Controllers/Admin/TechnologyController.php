@@ -80,7 +80,7 @@ class TechnologyController extends Controller
     public function destroy(Technology $technology)
     {
 
-        $projects = Project::all();
+        $projects = Project::withTrashed()->get();
 
         foreach ($projects as $project) {
 
