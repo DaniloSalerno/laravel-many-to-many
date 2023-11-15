@@ -14,6 +14,7 @@ return [
     */
     'required' => 'Il campo :attribute è obbligatorio!',
 
+    'exists' => 'Una o più :attribute selezionate non sono valide',
 
     'thumb' => [
         'image' => 'Il file :attribute deve essere un immagine valida.',
@@ -68,7 +69,9 @@ return [
         'content' => 'Contenuto',
         'project_url' =>  'Url del progetto',
         'git_url' =>  'Git Url del progetto',
-        'name' => 'Nome'
+        'name' => 'Nome',
+        'technologies' => 'Tecnologie',
+        'type_id' => 'Tipologie'
     ],
 
 ];

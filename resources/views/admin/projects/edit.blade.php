@@ -126,7 +126,7 @@
                     @endif
                     @endforeach
 
-                    @error('technology')
+                    @error('technologies')
                     <div class="text-danger"> {{$message}} </div>
                     @enderror
                 </div>
