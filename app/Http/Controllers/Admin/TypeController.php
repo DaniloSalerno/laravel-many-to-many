@@ -50,7 +50,6 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
     }
 
     /**
@@ -80,19 +79,15 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        /* PROVARE AD ELIMINARE IL TYPE DA OGNI PROJECT A CUI è STATO ASSEGNATO */
-        $projects = Project::all();
+
+        $projects = Project::withTrashed()->get();
 
         foreach ($projects as $project) {
 
-            if (!is_null($project->type_id)) {
-                //dd($project);
-                $project->type()->delete();
-            }
-        }
+            $project->type()->dissociate();
 
-        //dd($type->projects()->delete());
-        //$type->projects()->delete();
+            $project->save();
+        }
 
         $type->delete();
 
