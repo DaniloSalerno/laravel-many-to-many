@@ -61,7 +61,7 @@
                                     {{$technology->name}}
                                 </li>
                             @empty
-                                <li>Unlabeled</li>
+                                <li class="badge bg-primary">Unlabeled</li>
                             @endforelse
                         </ul>
                     </div>

@@ -97,7 +97,7 @@ class ProjectController extends Controller
             $val_data['thumb'] = $file_path;
         }
 
-        if (!Str::is($project->getOriginal('title'), $request->transliterator_list_ids)) {
+        if (!Str::is($project->getOriginal('title'), $request->title)) {
             $val_data['slug'] = $project->generateSlug($request->title);
         }
 
