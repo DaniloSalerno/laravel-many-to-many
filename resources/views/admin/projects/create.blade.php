@@ -91,10 +91,8 @@
                     <label for="technologies" class="form-label d-block">Choose Technologies:</label>
                     @foreach ($technologies as $technology)
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input @error('technologies') is-invalid @enderror" type="checkbox" id="technologies" name="technologies[]"
-                                value="{{ $technology->id }}"
-                                {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="technologies">{{ $technology->name }}</label>
+                            <input class="form-check-input @error('technologies') is-invalid @enderror" type="checkbox" id="technologies-{{$technology->id}}" name="technologies[]" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="technologies-{{$technology->id}}">{{ $technology->name }}</label>
                         </div>
                     @endforeach
                 </div>

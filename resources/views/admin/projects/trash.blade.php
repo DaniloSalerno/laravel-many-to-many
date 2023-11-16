@@ -165,7 +165,7 @@
             @empty
 
                 <tr>
-                    <td>No project trashed</td>
+                    <td colspan="6" class="text-center">No project trashed</td>
                 </tr>
                 
             @endforelse

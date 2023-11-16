@@ -110,17 +110,17 @@
 
                     @if ($errors->any())
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="technologies" name="technologies[]" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="technologies">{{ $technology->name }}</label>
+                            <input class="form-check-input" type="checkbox" id="technologies-{{ $technology->id }}" name="technologies[]" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="technologies-{{ $technology->id }}">{{ $technology->name }}</label>
                         </div>
 
                     @else
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="technologies" name="technologies[]"
+                            <input class="form-check-input" type="checkbox" id="technologies-{{ $technology->id }}" name="technologies[]"
                                 value="{{ $technology->id }}"
                                 {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="technologies">{{ $technology->name }}</label>
+                            <label class="form-check-label" for="technologies-{{ $technology->id }}">{{ $technology->name }}</label>
                         </div>
 
                     @endif
