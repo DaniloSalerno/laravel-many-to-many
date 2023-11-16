@@ -23,7 +23,7 @@
 
         <div class="pt-4"> {{$projects->links('pagination::bootstrap-5')}} </div>
 
-        <div class="table-responsive">
+        <div class="shadow">
             <table class="table table-light table-hover table-striped table-bordered table align-middle">
                 <thead>
                     <tr class="table-dark text-center">
@@ -90,8 +90,8 @@
 
                 </tbody>
             </table>
-            <div class="pt-4"> {{$projects->links('pagination::bootstrap-5')}} </div>
         </div>
+        <div class="pt-4"> {{$projects->links('pagination::bootstrap-5')}} </div>
 </div>
     
 
